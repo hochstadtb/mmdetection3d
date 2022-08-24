@@ -6,7 +6,8 @@ _base_ = [
 
 point_cloud_range = [0, -39.68, -3, 69.12, 39.68, 1]
 # dataset settings
-data_root = 'data/kitti/'
+# data_root = 'data/kitti/'
+data_root = '/data/cmpe249-fa22/kitti/'
 class_names = ['Pedestrian', 'Cyclist', 'Car']
 # PointPillars adopted a different sampling strategies among classes
 
@@ -110,7 +111,7 @@ optimizer_config = dict(grad_clip=dict(max_norm=35, norm_type=2))
 # PointPillars usually need longer schedule than second, we simply double
 # the training schedule. Do remind that since we use RepeatDataset and
 # repeat factor is 2, so we actually train 160 epochs.
-runner = dict(max_epochs=80)
+runner = dict(max_epochs=3)
 
 # Use evaluation interval=2 reduce the number of evaluation timese
 evaluation = dict(interval=2)
